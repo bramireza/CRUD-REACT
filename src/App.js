@@ -5,7 +5,7 @@ function App() {
   //console.log(data);
   return (
     <div>
-      <h2>CRUD REACT</h2>
+      <h1>CRUD REACT</h1>
       <CrudApp />
     </div>
   );

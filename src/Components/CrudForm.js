@@ -48,7 +48,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
 
   return (
     <div>
-      <h3>Agregar</h3>
+      <h3>{dataToEdit ? "Editar" : "Agregar"}</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Nombres: </label>
         <input
@@ -59,7 +59,6 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           value={form.name}
           onChange={handleChange} //{(e) => setNombres(e.target.value)}
         />
-        <br />
         <label htmlFor="lastname">Apellidos: </label>
         <input
           type="text"
@@ -70,7 +69,6 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           onChange={handleChange} //(e) => setApellidos(e.target.value)}
         />
 
-        <br />
         <p>Sexo:</p>
         <input
           type="radio"
@@ -89,14 +87,13 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           onChange={handleChange}
         />
         <label htmlFor="femenino">Femenino </label>
-        <br />
+
         <p>Elige tu Documento de Identidad</p>
         <select name="identity" onChange={handleChange} defaultValue="">
           <option value="">---</option>
           <option value="carnet">Carnet de Extrenjería</option>
           <option value="dni">DNI</option>
         </select>
-        <br />
         <label htmlFor="terms">Acepta Términos y Condiciones </label>
         <input
           type="checkbox"
@@ -115,8 +112,12 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           onChange={handleChange}
         />
         <br />
-        <input type="submit" />
-        <input type="reset" value="Limpiar" onClick={handleReset} />
+        <input type="submit" value={dataToEdit ? "Editar" : "Agregar"} />
+        <input
+          type="reset"
+          value={dataToEdit ? "Cancelar" : "Limpiar"}
+          onClick={handleReset}
+        />
       </form>
     </div>
   );
