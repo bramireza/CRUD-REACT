@@ -1,12 +1,12 @@
-import './App.css';
-import Formulario from './Components/Formulario';
+import CrudApp from "./Components/CrudApp";
+//import Formulario from "./Components/Formulario";
 
 function App() {
+  //console.log(data);
   return (
-    <div className="App">
-      <header className="App-header">
-        <Formulario></Formulario>
-      </header>
+    <div>
+      <h2>CRUD REACT</h2>
+      <CrudApp />
     </div>
   );
 }

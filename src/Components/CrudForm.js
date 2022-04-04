@@ -1,50 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function Formulario() {
-  const [form, setForm] = useState({});
-  //const [nombres, setNombres] = useState("");
-  //const [apellidos, setApellidos] = useState("");
+const initialForm = {
+  name: "",
+  lastname: "",
+  id: null,
+  sex: "masculino",
+  identity: "",
+  terms: false,
+  promotion: false,
+};
+const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
+  const [form, setForm] = useState(initialForm);
 
   const handleChange = (e) => {
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     });
   };
-
-  const handleChecked = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.checked,
-    });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Formulario Enviado!!!");
+    if (!form.name || !form.lastname) {
+      alert("Datos Incompletos");
+      return;
+    }
+    if (form.id === null) {
+      createData(form);
+    } else {
+      updateData(form);
+    }
+    handleReset();
+  };
+  const handleReset = (e) => {
+    setForm(initialForm);
+    setDataToEdit(null);
   };
 
   return (
-    <>
-      <h1>Formulario nro 1</h1>
+    <div>
+      <h3>Agregar</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="nombres">Nombres: </label>
         <input
           type="text"
-          id="nombres"
-          name="nombres"
+          id="name"
+          name="name"
           placeholder="Ingrese sus nombres"
-          value={form.nombres}
+          value={form.name}
           onChange={handleChange} //{(e) => setNombres(e.target.value)}
         />
         <br />
         <label htmlFor="apellidos">Apellidos: </label>
         <input
           type="text"
-          id="apellidos"
-          name="apellidos"
+          id="lastname"
+          name="lastname"
           placeholder="Ingrese sus apellidos"
-          value={form.apellidos}
+          value={form.lastname}
           onChange={handleChange} //(e) => setApellidos(e.target.value)}
         />
 
@@ -53,7 +67,7 @@ export default function Formulario() {
         <input
           type="radio"
           id="masculino"
-          name="sexo"
+          name="sex"
           value="masculino"
           onChange={handleChange}
           defaultChecked
@@ -62,39 +76,42 @@ export default function Formulario() {
         <input
           type="radio"
           id="femenino"
-          name="sexo"
+          name="sex"
           value="femenino"
           onChange={handleChange}
         />
         <label htmlFor="femenino">Femenino </label>
         <br />
         <p>Elige tu Documento de Identidad</p>
-        <select name="identidad" onChange={handleChange} defaultValue="">
+        <select name="identity" onChange={handleChange} defaultValue="">
           <option value="">---</option>
           <option value="carnet">Carnet de Extrenjería</option>
           <option value="dni">DNI</option>
         </select>
         <br />
-        <label htmlFor="terminos">Acepta Términos y Condiciones </label>
+        <label htmlFor="terms">Acepta Términos y Condiciones </label>
         <input
           type="checkbox"
           id="terminos"
           name="terminos"
-          onChange={handleChecked}
+          onChange={handleChange}
         />
         <br />
-        <label htmlFor="promociones">
+        <label htmlFor="promotion">
           Acepta envio de correo para promociones{" "}
         </label>
         <input
           type="checkbox"
           id="promociones"
           name="promociones"
-          onChange={handleChecked}
+          onChange={handleChange}
         />
         <br />
         <input type="submit" />
+        <input type="reset" value="Limpiar" onClick={handleReset} />
       </form>
-    </>
+    </div>
   );
-}
+};
+
+export default CrudForm;
