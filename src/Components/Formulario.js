@@ -84,7 +84,7 @@ export default function Formulario() {
         />
         <br />
         <label htmlFor="promociones">
-          Acepta envio de correo para promociones{" "}
+          Acepta envio de correo para promociones
         </label>
         <input
           type="checkbox"

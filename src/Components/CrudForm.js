@@ -12,6 +12,14 @@ const initialForm = {
 const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
   const [form, setForm] = useState(initialForm);
 
+  useEffect(() => {
+    if (dataToEdit) {
+      setForm(dataToEdit);
+    } else {
+      setForm(initialForm);
+    }
+  }, [dataToEdit]);
+
   const handleChange = (e) => {
     const value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
@@ -42,7 +50,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
     <div>
       <h3>Agregar</h3>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="nombres">Nombres: </label>
+        <label htmlFor="name">Nombres: </label>
         <input
           type="text"
           id="name"
@@ -52,7 +60,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           onChange={handleChange} //{(e) => setNombres(e.target.value)}
         />
         <br />
-        <label htmlFor="apellidos">Apellidos: </label>
+        <label htmlFor="lastname">Apellidos: </label>
         <input
           type="text"
           id="lastname"
@@ -92,18 +100,18 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
         <label htmlFor="terms">Acepta Términos y Condiciones </label>
         <input
           type="checkbox"
-          id="terminos"
-          name="terminos"
+          id="terms"
+          name="terms"
           onChange={handleChange}
         />
         <br />
         <label htmlFor="promotion">
-          Acepta envio de correo para promociones{" "}
+          Acepta envio de correo para promociones
         </label>
         <input
           type="checkbox"
-          id="promociones"
-          name="promociones"
+          id="promotion"
+          name="promotion"
           onChange={handleChange}
         />
         <br />

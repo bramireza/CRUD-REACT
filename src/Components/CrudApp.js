@@ -17,7 +17,7 @@ const initialData = [
     name: "Antony",
     lastname: "Ramírez",
     sex: "masculino",
-    identity: "dni",
+    identity: "carnet",
     terms: true,
     promotion: true,
   },
@@ -50,8 +50,20 @@ const CrudApp = () => {
     //console.log(data);
     setDb([...db, data]);
   };
-  const updateData = (data) => {};
-  const deleteData = (id) => {};
+  const updateData = (data) => {
+    let newData = db.map((el) => (el.id === data.id ? data : el));
+    setDb(newData);
+  };
+  const deleteData = (id) => {
+    let isDelete = window.confirm("¿Estas Seguro que deseas eliminar");
+
+    if (isDelete) {
+      let newData = db.filter((el) => el.id !== id);
+      setDb(newData);
+    } else {
+      return;
+    }
+  };
   return (
     <>
       <h1>CRUD APP</h1>
