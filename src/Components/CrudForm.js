@@ -69,14 +69,14 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           onChange={handleChange} //(e) => setApellidos(e.target.value)}
         />
 
-        <p>Sexo:</p>
+        <label>Sexo:</label>
+        <br />
         <input
           type="radio"
           id="masculino"
           name="sex"
           value="masculino"
           onChange={handleChange}
-          defaultChecked
         />
         <label htmlFor="masculino">Masculino </label>
         <input
@@ -88,7 +88,8 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
         />
         <label htmlFor="femenino">Femenino </label>
 
-        <p>Elige tu Documento de Identidad</p>
+        <br />
+        <label>Elige tu Documento de Identidad</label>
         <select name="identity" onChange={handleChange} defaultValue="">
           <option value="">---</option>
           <option value="carnet">Carnet de Extrenjería</option>
@@ -102,9 +103,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           onChange={handleChange}
         />
         <br />
-        <label htmlFor="promotion">
-          Acepta envio de correo para promociones
-        </label>
+        <label htmlFor="promotion">Acepta envío de ofertas por correos </label>
         <input
           type="checkbox"
           id="promotion"

@@ -55,7 +55,9 @@ const CrudApp = () => {
     setDb(newData);
   };
   const deleteData = (id) => {
-    let isDelete = window.confirm("¿Estas Seguro que deseas eliminar");
+    let isDelete = window.confirm(
+      `¿Estas Seguro que deseas eliminar ID: '${id}' ?`
+    );
 
     if (isDelete) {
       let newData = db.filter((el) => el.id !== id);
