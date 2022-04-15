@@ -1,0 +1,40 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "name": "Brayian",
+      "lastname": "Ramírez",
+      "sex": "masculino",
+      "identity": "dni",
+      "terms": true,
+      "promotion": true
+    },
+    {
+      "id": "2",
+      "name": "Antony",
+      "lastname": "Ramírez",
+      "sex": "masculino",
+      "identity": "carnet",
+      "terms": true,
+      "promotion": true
+    },
+    {
+      "id": "3",
+      "name": "Brayian",
+      "lastname": "Aguayo",
+      "sex": "masculino",
+      "identity": "dni",
+      "terms": true,
+      "promotion": true
+    },
+    {
+      "id": "4",
+      "name": "Antony",
+      "lastname": "Aguayo",
+      "sex": "masculino",
+      "identity": "dni",
+      "terms": true,
+      "promotion": true
+    }
+  ]
+}

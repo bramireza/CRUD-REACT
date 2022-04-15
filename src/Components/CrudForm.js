@@ -92,7 +92,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
         <label>Elige tu Documento de Identidad</label>
         <select name="identity" onChange={handleChange} defaultValue="">
           <option value="">---</option>
-          <option value="carnet">Carnet de Extrenjería</option>
+          <option value="carnet">Carnet de Extranjería</option>
           <option value="dni">DNI</option>
         </select>
         <label htmlFor="terms">Acepta Términos y Condiciones </label>

@@ -1,5 +1,5 @@
-import CrudApp from "./Components/CrudApp";
-//import Formulario from "./Components/Formulario";
+import CrudApp from "./components/CrudApp";
+//import Formulario from "./components/Formulario";
 
 function App() {
   //console.log(data);
